@@ -7,15 +7,18 @@
   "variable": [
     {
       "key": "base_url",
-      "value": "https://api.innohub.alakbarova.site/api"
+      "value": "http://localhost:5000/api",
+      "type": "string"
     },
     {
       "key": "token",
-      "value": ""
+      "value": "",
+      "type": "string"
     },
     {
       "key": "admin_secret_key",
-      "value": ""
+      "value": "",
+      "type": "string"
     }
   ],
   "auth": {
@@ -44,8 +47,11 @@
                   "    var data = pm.response.json();",
                   "    if (data.token) {",
                   "      pm.collectionVariables.set('token', data.token);",
+                  "      console.log('Token avtomatik olaraq saxlanıldı');",
                   "    }",
-                  "  } catch (e) {}",
+                  "  } catch (e) {",
+                  "    console.log('Token saxlanıla bilmədi:', e);",
+                  "  }",
                   "}"
                 ],
                 "type": "text/javascript"
@@ -66,8 +72,13 @@
             },
             "url": {
               "raw": "{{base_url}}/admin/login",
-              "host": ["{{base_url}}"],
-              "path": ["admin", "login"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "login"
+              ]
             }
           },
           "response": []
@@ -88,12 +99,17 @@
             ],
             "body": {
               "mode": "raw",
-              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"Admin123!\"\n}"
+              "raw": "{\n  \"username\": \"admin\",\n  \"password\": \"Admin123!@#\"\n}"
             },
             "url": {
               "raw": "{{base_url}}/admin/create",
-              "host": ["{{base_url}}"],
-              "path": ["admin", "create"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "admin",
+                "create"
+              ]
             }
           },
           "response": []
@@ -108,9 +124,20 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "{{base_url}}/courses",
-              "host": ["{{base_url}}"],
-              "path": ["courses"]
+              "raw": "{{base_url}}/courses?category=IT",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses"
+              ],
+              "query": [
+                {
+                  "key": "category",
+                  "value": "IT",
+                  "disabled": true
+                }
+              ]
             }
           },
           "response": []
@@ -121,8 +148,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/courses/:id",
-              "host": ["{{base_url}}"],
-              "path": ["courses", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -163,7 +195,7 @@
                 },
                 {
                   "key": "description",
-                  "value": "Full stack web development course",
+                  "value": "Full stack web development course covering HTML, CSS, JavaScript, Node.js, React",
                   "type": "text"
                 },
                 {
@@ -196,8 +228,12 @@
             },
             "url": {
               "raw": "{{base_url}}/courses",
-              "host": ["{{base_url}}"],
-              "path": ["courses"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses"
+              ]
             }
           },
           "response": []
@@ -265,8 +301,13 @@
             },
             "url": {
               "raw": "{{base_url}}/courses/:id",
-              "host": ["{{base_url}}"],
-              "path": ["courses", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -293,8 +334,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/courses/:id",
-              "host": ["{{base_url}}"],
-              "path": ["courses", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -321,8 +367,14 @@
             },
             "url": {
               "raw": "{{base_url}}/courses/:id/apply",
-              "host": ["{{base_url}}"],
-              "path": ["courses", ":id", "apply"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                ":id",
+                "apply"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -344,8 +396,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/projects/past",
-              "host": ["{{base_url}}"],
-              "path": ["projects", "past"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "past"
+              ]
             }
           },
           "response": []
@@ -356,8 +413,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/projects/future",
-              "host": ["{{base_url}}"],
-              "path": ["projects", "future"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                "future"
+              ]
             }
           },
           "response": []
@@ -409,8 +471,12 @@
             },
             "url": {
               "raw": "{{base_url}}/projects",
-              "host": ["{{base_url}}"],
-              "path": ["projects"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects"
+              ]
             }
           },
           "response": []
@@ -462,8 +528,13 @@
             },
             "url": {
               "raw": "{{base_url}}/projects/:id",
-              "host": ["{{base_url}}"],
-              "path": ["projects", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -490,8 +561,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/projects/:id",
-              "host": ["{{base_url}}"],
-              "path": ["projects", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "projects",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -513,8 +589,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/blog",
-              "host": ["{{base_url}}"],
-              "path": ["blog"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "blog"
+              ]
             }
           },
           "response": []
@@ -525,8 +605,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/blog/:id",
-              "host": ["{{base_url}}"],
-              "path": ["blog", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "blog",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -580,8 +665,12 @@
             },
             "url": {
               "raw": "{{base_url}}/blog",
-              "host": ["{{base_url}}"],
-              "path": ["blog"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "blog"
+              ]
             }
           },
           "response": []
@@ -629,8 +718,13 @@
             },
             "url": {
               "raw": "{{base_url}}/blog/:id",
-              "host": ["{{base_url}}"],
-              "path": ["blog", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "blog",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -657,8 +751,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/blog/:id",
-              "host": ["{{base_url}}"],
-              "path": ["blog", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "blog",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -680,8 +779,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/events",
-              "host": ["{{base_url}}"],
-              "path": ["events"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events"
+              ]
             }
           },
           "response": []
@@ -692,8 +795,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/events/:id",
-              "host": ["{{base_url}}"],
-              "path": ["events", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -766,8 +874,12 @@
             },
             "url": {
               "raw": "{{base_url}}/events",
-              "host": ["{{base_url}}"],
-              "path": ["events"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events"
+              ]
             }
           },
           "response": []
@@ -834,8 +946,13 @@
             },
             "url": {
               "raw": "{{base_url}}/events/:id",
-              "host": ["{{base_url}}"],
-              "path": ["events", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -862,8 +979,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/events/:id",
-              "host": ["{{base_url}}"],
-              "path": ["events", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -890,8 +1012,14 @@
             },
             "url": {
               "raw": "{{base_url}}/events/:id/register",
-              "host": ["{{base_url}}"],
-              "path": ["events", ":id", "register"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                ":id",
+                "register"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -913,8 +1041,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/hackathons/past",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons", "past"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                "past"
+              ]
             }
           },
           "response": []
@@ -925,8 +1058,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/hackathons/future",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons", "future"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                "future"
+              ]
             }
           },
           "response": []
@@ -988,8 +1126,12 @@
             },
             "url": {
               "raw": "{{base_url}}/hackathons",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons"
+              ]
             }
           },
           "response": []
@@ -1051,8 +1193,13 @@
             },
             "url": {
               "raw": "{{base_url}}/hackathons/:id",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1079,8 +1226,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/hackathons/:id",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1107,8 +1259,14 @@
             },
             "url": {
               "raw": "{{base_url}}/hackathons/:id/register",
-              "host": ["{{base_url}}"],
-              "path": ["hackathons", ":id", "register"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                ":id",
+                "register"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1130,8 +1288,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/scholarships",
-              "host": ["{{base_url}}"],
-              "path": ["scholarships"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "scholarships"
+              ]
             }
           },
           "response": []
@@ -1173,8 +1335,12 @@
             },
             "url": {
               "raw": "{{base_url}}/scholarships",
-              "host": ["{{base_url}}"],
-              "path": ["scholarships"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "scholarships"
+              ]
             }
           },
           "response": []
@@ -1216,8 +1382,13 @@
             },
             "url": {
               "raw": "{{base_url}}/scholarships/:id",
-              "host": ["{{base_url}}"],
-              "path": ["scholarships", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "scholarships",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1244,8 +1415,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/scholarships/:id",
-              "host": ["{{base_url}}"],
-              "path": ["scholarships", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "scholarships",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1267,8 +1443,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/teachers",
-              "host": ["{{base_url}}"],
-              "path": ["teachers"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "teachers"
+              ]
             }
           },
           "response": []
@@ -1316,8 +1496,12 @@
             },
             "url": {
               "raw": "{{base_url}}/teachers",
-              "host": ["{{base_url}}"],
-              "path": ["teachers"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "teachers"
+              ]
             }
           },
           "response": []
@@ -1365,8 +1549,13 @@
             },
             "url": {
               "raw": "{{base_url}}/teachers/:id",
-              "host": ["{{base_url}}"],
-              "path": ["teachers", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "teachers",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1393,8 +1582,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/teachers/:id",
-              "host": ["{{base_url}}"],
-              "path": ["teachers", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "teachers",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1416,8 +1610,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/graduates",
-              "host": ["{{base_url}}"],
-              "path": ["graduates"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "graduates"
+              ]
             }
           },
           "response": []
@@ -1465,8 +1663,12 @@
             },
             "url": {
               "raw": "{{base_url}}/graduates",
-              "host": ["{{base_url}}"],
-              "path": ["graduates"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "graduates"
+              ]
             }
           },
           "response": []
@@ -1487,8 +1689,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/graduates/:id",
-              "host": ["{{base_url}}"],
-              "path": ["graduates", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "graduates",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1510,8 +1717,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/partners",
-              "host": ["{{base_url}}"],
-              "path": ["partners"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "partners"
+              ]
             }
           },
           "response": []
@@ -1554,8 +1765,12 @@
             },
             "url": {
               "raw": "{{base_url}}/partners",
-              "host": ["{{base_url}}"],
-              "path": ["partners"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "partners"
+              ]
             }
           },
           "response": []
@@ -1576,8 +1791,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/partners/:id",
-              "host": ["{{base_url}}"],
-              "path": ["partners", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "partners",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1598,9 +1818,20 @@
           "request": {
             "method": "GET",
             "url": {
-              "raw": "{{base_url}}/carousel",
-              "host": ["{{base_url}}"],
-              "path": ["carousel"]
+              "raw": "{{base_url}}/carousel?active=true",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel"
+              ],
+              "query": [
+                {
+                  "key": "active",
+                  "value": "true",
+                  "disabled": true
+                }
+              ]
             }
           },
           "response": []
@@ -1611,8 +1842,13 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/carousel/:id",
-              "host": ["{{base_url}}"],
-              "path": ["carousel", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1673,8 +1909,12 @@
             },
             "url": {
               "raw": "{{base_url}}/carousel",
-              "host": ["{{base_url}}"],
-              "path": ["carousel"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel"
+              ]
             }
           },
           "response": []
@@ -1729,8 +1969,13 @@
             },
             "url": {
               "raw": "{{base_url}}/carousel/:id",
-              "host": ["{{base_url}}"],
-              "path": ["carousel", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1757,8 +2002,13 @@
             "method": "DELETE",
             "url": {
               "raw": "{{base_url}}/carousel/:id",
-              "host": ["{{base_url}}"],
-              "path": ["carousel", ":id"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel",
+                ":id"
+              ],
               "variable": [
                 {
                   "key": "id",
@@ -1795,8 +2045,14 @@
             },
             "url": {
               "raw": "{{base_url}}/carousel/order/update",
-              "host": ["{{base_url}}"],
-              "path": ["carousel", "order", "update"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "carousel",
+                "order",
+                "update"
+              ]
             }
           },
           "response": []
@@ -1822,8 +2078,12 @@
             },
             "url": {
               "raw": "{{base_url}}/contact",
-              "host": ["{{base_url}}"],
-              "path": ["contact"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contact"
+              ]
             }
           },
           "response": []
@@ -1849,8 +2109,13 @@
             },
             "url": {
               "raw": "{{base_url}}/career/apply",
-              "host": ["{{base_url}}"],
-              "path": ["career", "apply"]
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "career",
+                "apply"
+              ]
             }
           },
           "response": []
@@ -1866,8 +2131,12 @@
             "method": "GET",
             "url": {
               "raw": "{{base_url}}/search?q=example",
-              "host": ["{{base_url}}"],
-              "path": ["search"],
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "search"
+              ],
               "query": [
                 {
                   "key": "q",
@@ -1882,4 +2151,3 @@
     }
   ]
 }
-
