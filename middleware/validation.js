@@ -55,6 +55,10 @@ const validateCourse = [
     .trim()
     .notEmpty()
     .withMessage('Müddət tələb olunur'),
+  body('schedule')
+    .trim()
+    .notEmpty()
+    .withMessage('Cədvəl tələb olunur'),
   body('trainer')
     .trim()
     .notEmpty()
