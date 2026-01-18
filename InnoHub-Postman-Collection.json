@@ -2060,6 +2060,162 @@
       ]
     },
     {
+      "name": "FAQ",
+      "item": [
+        {
+          "name": "Get All FAQs",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/faq",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "faq"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get FAQ by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/faq/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "faq",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create FAQ",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"Sual burada?\",\n  \"answer\": \"Cavab burada...\",\n  \"order\": 0\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/faq",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "faq"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update FAQ",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [
+              {
+                "key": "Content-Type",
+                "value": "application/json"
+              }
+            ],
+            "body": {
+              "mode": "raw",
+              "raw": "{\n  \"question\": \"Yenilənmiş sual?\",\n  \"answer\": \"Yenilənmiş cavab...\",\n  \"order\": 1\n}"
+            },
+            "url": {
+              "raw": "{{base_url}}/faq/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "faq",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete FAQ",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/faq/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "faq",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Contact",
       "item": [
         {
