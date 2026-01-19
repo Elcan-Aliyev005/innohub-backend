@@ -7,6 +7,7 @@ const { validateCourse } = require('../middleware/validation');
 const { createLimiter } = require('../middleware/rateLimiter');
 
 router.get('/', courseController.getAllCourses);
+router.get('/applications/all', auth, courseController.getAllCourseApplications);
 router.get('/:id', courseController.getCourseById);
 router.post('/', auth, createLimiter, upload.single('image'), validateCourse, courseController.createCourse);
 router.put('/:id', auth, upload.single('image'), validateCourse, courseController.updateCourse);

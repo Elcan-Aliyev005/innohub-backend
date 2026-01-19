@@ -41,3 +41,11 @@ exports.submitContact = async (req, res) => {
   }
 };
 
+exports.getAllContacts = async (req, res) => {
+  try {
+    const contacts = await Contact.find().sort({ createdAt: -1 });
+    res.json(contacts);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

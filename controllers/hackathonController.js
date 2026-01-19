@@ -74,3 +74,11 @@ exports.registerForHackathon = async (req, res) => {
   }
 };
 
+exports.getAllHackathonRegistrations = async (req, res) => {
+  try {
+    const registrations = await HackathonRegistration.find().populate('hackathonId').sort({ createdAt: -1 });
+    res.json(registrations);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

@@ -10,3 +10,11 @@ exports.apply = async (req, res) => {
   }
 };
 
+exports.getAllCareerApplications = async (req, res) => {
+  try {
+    const applications = await CareerConsulting.find().sort({ createdAt: -1 });
+    res.json(applications);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

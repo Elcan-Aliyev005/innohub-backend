@@ -77,3 +77,11 @@ exports.registerForEvent = async (req, res) => {
   }
 };
 
+exports.getAllEventRegistrations = async (req, res) => {
+  try {
+    const registrations = await EventRegistration.find().populate('eventId').sort({ createdAt: -1 });
+    res.json(registrations);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};

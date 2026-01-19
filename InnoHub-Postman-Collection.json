@@ -384,6 +384,34 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get All Course Applications (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/courses/applications/all",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "courses",
+                "applications",
+                "all"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -1029,6 +1057,34 @@
             }
           },
           "response": []
+        },
+        {
+          "name": "Get All Event Registrations (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/events/registrations/all",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "events",
+                "registrations",
+                "all"
+              ]
+            }
+          },
+          "response": []
         }
       ]
     },
@@ -1272,6 +1328,34 @@
                   "key": "id",
                   "value": ""
                 }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get All Hackathon Registrations (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/hackathons/registrations/all",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "hackathons",
+                "registrations",
+                "all"
               ]
             }
           },
@@ -2417,6 +2501,32 @@
       "name": "Contact",
       "item": [
         {
+          "name": "Get All Contacts (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/contact",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "contact"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
           "name": "Submit Contact Form",
           "request": {
             "method": "POST",
@@ -2447,6 +2557,34 @@
     {
       "name": "Career",
       "item": [
+        {
+          "name": "Get All Career Applications (Admin)",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/career/applications/all",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "career",
+                "applications",
+                "all"
+              ]
+            }
+          },
+          "response": []
+        },
         {
           "name": "Apply for Career Consulting",
           "request": {

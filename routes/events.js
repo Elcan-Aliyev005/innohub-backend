@@ -5,6 +5,7 @@ const auth = require('../middleware/auth');
 const upload = require('../middleware/upload');
 
 router.get('/', eventController.getAllEvents);
+router.get('/registrations/all', auth, eventController.getAllEventRegistrations);
 router.get('/:id', eventController.getEventById);
 router.post('/', auth, upload.single('image'), eventController.createEvent);
 router.put('/:id', auth, upload.single('image'), eventController.updateEvent);

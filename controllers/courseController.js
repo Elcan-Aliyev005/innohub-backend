@@ -79,3 +79,11 @@ exports.applyForCourse = async (req, res) => {
   }
 };
 
+exports.getAllCourseApplications = async (req, res) => {
+  try {
+    const applications = await CourseApplication.find().populate('courseId').sort({ createdAt: -1 });
+    res.json(applications);
+  } catch (error) {
+    res.status(500).json({ message: error.message });
+  }
+};
