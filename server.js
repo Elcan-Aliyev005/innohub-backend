@@ -45,6 +45,7 @@ app.use('/api/contact', require('./routes/contact'));
 app.use('/api/search', require('./routes/search'));
 app.use('/api/carousel', require('./routes/carousel'));
 app.use('/api/faq', require('./routes/faq'));
+app.use('/api/vacancy', require('./routes/vacancy'));
 app.use('/api/admin', require('./routes/admin'));
 
 app.use(errorHandler);

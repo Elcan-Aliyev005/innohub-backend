@@ -2216,6 +2216,204 @@
       ]
     },
     {
+      "name": "Vacancy",
+      "item": [
+        {
+          "name": "Get All Vacancies",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/vacancy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "vacancy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Get Vacancy by ID",
+          "request": {
+            "method": "GET",
+            "url": {
+              "raw": "{{base_url}}/vacancy/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "vacancy",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Create Vacancy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "POST",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Vakansiya Başlığı",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Vakansiya təsviri burada...",
+                  "type": "text"
+                },
+                {
+                  "key": "contactNumber",
+                  "value": "+994501234567",
+                  "type": "text"
+                },
+                {
+                  "key": "order",
+                  "value": "0",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/vacancy",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "vacancy"
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Update Vacancy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "PUT",
+            "header": [],
+            "body": {
+              "mode": "formdata",
+              "formdata": [
+                {
+                  "key": "title",
+                  "value": "Yenilənmiş Vakansiya Başlığı",
+                  "type": "text"
+                },
+                {
+                  "key": "description",
+                  "value": "Yenilənmiş təsvir",
+                  "type": "text"
+                },
+                {
+                  "key": "contactNumber",
+                  "value": "+994501234567",
+                  "type": "text"
+                },
+                {
+                  "key": "order",
+                  "value": "1",
+                  "type": "text"
+                },
+                {
+                  "key": "image",
+                  "type": "file",
+                  "src": []
+                }
+              ]
+            },
+            "url": {
+              "raw": "{{base_url}}/vacancy/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "vacancy",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        },
+        {
+          "name": "Delete Vacancy",
+          "request": {
+            "auth": {
+              "type": "bearer",
+              "bearer": [
+                {
+                  "key": "token",
+                  "value": "{{token}}",
+                  "type": "string"
+                }
+              ]
+            },
+            "method": "DELETE",
+            "url": {
+              "raw": "{{base_url}}/vacancy/:id",
+              "host": [
+                "{{base_url}}"
+              ],
+              "path": [
+                "vacancy",
+                ":id"
+              ],
+              "variable": [
+                {
+                  "key": "id",
+                  "value": ""
+                }
+              ]
+            }
+          },
+          "response": []
+        }
+      ]
+    },
+    {
       "name": "Contact",
       "item": [
         {
